@@ -1,0 +1,64 @@
+/* 全局重置盒模型，项目标配 */
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+body {
+  /* 基础字体 */
+  font-family: "Microsoft Yahei", sans-serif;
+  /* 页面背景区分 */
+  background-color: #f5f5f5;
+  /* 文本默认颜色 */
+  color: #333;
+  line-height: 1.6; /* 段落行高 */
+}
+
+/* 给页面容器设置最大宽度 + 水平居中 */
+.container {
+  max-width: 800px;
+  margin: 30px auto; /* 上下外边距30，左右auto实现居中 */
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav {
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #f8f8f8;
+}
+
+nav a {
+  margin-right: 16px;
+  text-decoration: none;
+  color: #2266cc;
+}
+
+main {
+  margin-bottom: 24px;
+}
+
+section, article {
+  margin-bottom: 18px;
+  padding: 12px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+footer {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+  color: #666;
+  font-size: 14px;
+}
