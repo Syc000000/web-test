@@ -1,0 +1,38 @@
+/* 全局盒模型 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 24px;
+    line-height: 1.6;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* ========= Grid核心代码（重点） ========= */
+.card-wrap {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    margin-bottom: 12px;
+    color: #444;
+}
+
