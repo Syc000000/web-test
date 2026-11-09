@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day9 移动优先响应式</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 0 16px;
+            line-height: 1.6;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .card-container {
+            display: grid;
+            /* ===== 默认：手机窄屏，单列（移动优先核心！） ===== */
+            grid-template-columns: 1fr; 
+            gap: 16px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 16px;
+            border-radius: 6px;
+        }
+        .card h3 {
+            margin-bottom: 8px;
+        }
+        /* ===== 平板断点 md：≥768px，两列 ===== */
+        @media (min-width: 768px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ===== 桌面断点 lg：≥1024px，三列 ===== */
+        @media (min-width: 1024px) {
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    </style>
+</head>
+<body>
+    <h2>移动优先卡片布局</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>卡片1</h3>
+            <p>移动优先，手机默认单列展示。</p>
+        </div>
+        <div class="card">
+            <h3>卡片 2</h3>
+            <p>宽度768px以上自动变成两列。</p>
+        </div>
+        <div class="card">
+            <h3>卡片 3</h3>
+            <p>宽度1024px以上自动变成三列。</p>
+        </div>
+    </div>
+</body>
+</html>
