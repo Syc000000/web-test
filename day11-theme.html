@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day11: CSS 变量与主题切换</title>
+    <style>
+        /* :root 根选择器：全局css变量定义位置，所有元素都能读取到这里的变量 */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #222222;
+            --btn-color: #2563eb;
+            --btn-text: #ffffff;
+        }
+
+        /* 给body增加dark类的时候，覆盖上面的全局变量，变成暗色主题 */
+        body.dark {
+            --bg-color: #1a1a1a;
+            --text-color: #f1f1f1;
+            --btn-color: #60a5fa;
+            --btn-text: #111111;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* 使用var读取上面定义的背景色定义，切换dark时自动变化 */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            /* 设置页面基础字体，优先系统无衬线字体 */
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            /* 上下外边距3rem，左右自动，实现水平居中 */
+            margin: 3rem auto;
+            /* 左右内边距 */
+            padding: 0 16px;
+            line-height: 1.7;
+            /* 过度动画：背景、文字颜色变化加0.3秒平滑过度 */
+            transition: backgroud-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        p {
+            /* 段落底部外边距 */
+            margin-bottom: 24px;
+        }
+
+        button {
+            background-color: var(--btn-color);
+            color: var(--btn-text);
+            /* 清楚按钮默认边距 */
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            /* 鼠标悬浮变成手型 */
+            cursor: pointer;
+            /* 焦点模式，无障碍，Tab选中可见 */
+            outline: none;
+        }
+
+        button:focus {
+            /* 获取焦点时外发光，键盘用户识别焦点 */
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS变量主题切换演示</h1>
+    <p>测试文本，点击下方按钮切换亮暗模式。颜色由:root 里的css变量控制</p>
+    <button id="themeBtn">切换暗色模式</button>
+
+    <script>
+        //获取页面上id为themeBtn的按钮元素
+        const themeBtn = document.getElementById('themeBtn');
+        //获取body元素，后续用来添加/移除dark类
+        const body = document.body;
+
+        //给按钮绑定点击事件，点击执行函数
+        themeBtn.addEventListener('click',
+            function() {
+                //toggle：如果body有dark类就删掉，没有就加上
+                body.classList.toggle('dark');
+
+                //判断body是否包含dark类，修改按钮文字
+                if (body.classList.contains('dark')) {
+                    themeBtn.innerText = "切换亮色模式";
+                } else {
+                    themeBtn.innerText = "切换暗色模式";
+                }
+            }
+        )
+    </script>
+</body>
+</html>
