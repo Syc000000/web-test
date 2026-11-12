@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="day13-index.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>我的个人主页</h1>
+        <button id="themeBtn">切换暗色模式</button>
+    </header>
+
+    <nav class="main-nav">
+        <a href="#about">关于我</a>
+        <a href="works">项目作品</a>
+        <a href="contact">联系我</a>
+    </nav>
+
+    <!-- main语义标签：页面主体内容，一个页面只放一个main -->
+    <main class="container">
+        <section id="about" class="section">
+            <h2>关于我</h2>
+            <p>这里是个人简介，前端练习项目，整合Flex、Grid、响应式、亮暗主题、表单。</p>
+            <p>页面支持手机、电脑多尺寸访问，点击右上角按钮切换亮色/暗色。</p>
+        </section> 
+
+        <section id="works" class="section">
+            <h2>项目作品</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>HTML 语义页面</h3>
+                    <p>Day2 练习，语义标签搭建页面骨架</p>
+                    <a href="#">查看详情</a>
+                </article>
+                <article class="card">
+                    <h3>Flex布局导航</h3>
+                    <p>Day4 Flex练习，水平垂直居中卡片、导航栏</p>
+                    <a href="#">查看详情</a>
+                </article>
+                <article class="card">
+                    <h3>Grid响应式卡片</h3>
+                    <p>Day6+Day9 移动优先Grid，自适应多列</p>
+                    <a href="#">查看详情</a>
+                </article>
+            </div>     
+        </section>
+
+        <section id="contact" class="section">
+            <h2>联系我</h2>
+            <form class="contact-form">
+                <div class="form-item">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-item">
+                    <label for="email">邮件</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div class="form-item">
+                    <label for="msg">留言</label>
+                    <!-- 多行文本输入 -->
+                    <textarea id="msg" name="msg"></textarea>
+                </div>
+                <button type="submit">提交留言</button>
+            </form>    
+        </section>
+    </main>
+
+    <!-- footer语义标签：页脚，版权信息区域 -->
+    <footer class="page-footer">
+        <p>&copy;2026个人主页练习</p>
+    </footer>
+
+    <!-- script标签：写入JS代码，实现主体切换逻辑 -->
+    <script>
+        //获取页面上id为themeBtn的按钮元素
+        const themeBtn = document.getElementById('themeBtn');
+        //获取body元素，后续用来添加/移除dark类
+        const body = document.body;
+        //给按钮绑定点击事件，点击时执行函数
+        themeBtn.addEventListener('click', function() {
+            //toggle：如果body有dark就删掉，没有就加上
+            body.classList.toggle('dark');    
+
+            if (body.classList.contains('dark')) {
+                themeBtn.innerText = "切换亮色模式";
+            } else {
+                themeBtn.innerText = "切换暗色模式";
+            }
+        })
+    </script>
+</body>
+</html>
